@@ -577,7 +577,9 @@ def main():
     st.write("Upload your study material and generate a question paper based on your parameters.")
     tab1, tab2, tab3 = st.tabs(["AI Generation", "Manual Input", "Paste Formatted Paper"])
     with tab1:
-        api_key = st.text_input("Enter your Gemini API Key", type="password")
+        # Set your Gemini API key here
+        api_key = "AIzaSyC065w0Pxj6kH-2yiVokqSDk02oIKLzquw"
+        # Remove the API key input from the UI
         uploaded_file = st.file_uploader("Upload Material (PDF, DOCX, or TXT)", type=["pdf", "docx", "txt"])
         subject = st.text_input("Enter Subject Name", value="Fundamentals of AI")
         total_marks = st.number_input("Total Marks", min_value=1, value=50)
@@ -587,7 +589,7 @@ def main():
         long_count = st.number_input("Number of 5-mark Questions", min_value=0, value=2)
         if st.button("Generate Question Paper", key="ai_gen_btn"):
             if not api_key:
-                st.error("Please enter your Gemini API key.")
+                st.error("API key is not set. Please contact the administrator.")
                 return
             if not uploaded_file:
                 st.error("Please upload your study material.")
